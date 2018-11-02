@@ -1,3 +1,2 @@
 # EAGLE
-Enhancer And Gene Learning Ensemble method
-It's my code.
+EAGLE used all six features only derived from the enhancers and gene expression datasets, without providing more information like histone modification, methylation or other enhancer/promoter-related detection datasets. With a high accuracy thirteen times larger than employing the closest genes, EAGLE could correctly identify the individual enhancer-gene interactions across 70 tissue/cell types. 
