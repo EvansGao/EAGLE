@@ -44,6 +44,6 @@ system("perl combination.pl");
 
 #system("rm -rf Temp");
 
-#perl EAGLE.pl -E inputexample/GM12878_enh.bed -G inputexample/GM12878_gene.txt
+#perl EAGLE.pl -E inputexample/cell_enh.bed -G inputexample/cell_gene.txt
 $duration = time - $start;
 print "all is done: $duration s\n";	
