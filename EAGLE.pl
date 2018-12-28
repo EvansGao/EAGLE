@@ -1,3 +1,4 @@
+$start = time;
 use Getopt::Long;
 if(@ARGV < 1){
     print "an Enhancer And Gene based Learning Ensembl mothod for prediction of enhancer-gene pairs\n";
@@ -30,7 +31,13 @@ system("perl getEWS.pl");
 system("perl getGWS.pl");
 
 #get the feature of Enhancer window signal (WEES)
-system("perl getWEES.pl");
+system("perl getWEEC.pl");
+
+#combining all features
+system("perl combination.pl");
+
+#run matlab
+system("perl combination.pl");
 
 #get
 #system("perl $PATH/Scripts/Preprocess.pl $PATH");
@@ -38,3 +45,5 @@ system("perl getWEES.pl");
 #system("rm -rf Temp");
 
 #perl EAGLE.pl -E inputexample/GM12878_enh.bed -G inputexample/GM12878_gene.txt
+$duration = time - $start;
+print "all is done: $duration s\n";	
