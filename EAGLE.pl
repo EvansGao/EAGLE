@@ -37,7 +37,7 @@ system("perl getWEEC.pl");
 system("perl combination.pl");
 
 #run matlab
-system("perl combination.pl");
+system("matlab -nosplash -nodesktop -minimize -r predictor");
 
 #get
 #system("perl $PATH/Scripts/Preprocess.pl $PATH");
