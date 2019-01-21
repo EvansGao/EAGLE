@@ -6,7 +6,7 @@ perl EAGLE.pl -E <Enhancer> -G <Expression><br />
 Example for prediction of EG interaction: perl EAGLE.pl -E inputexample/cell_enh.bed -G inputexample/cell_gene.txt<br />
 Essential Options<br />
 -E: A tab-delineate file indicate the enhancer positions and signals with format as "\<chr\>\t\<start\>\t\<end\>\t\<signal\>"<br />
--G: A tab-delineate file displayed the expression value of ensembl genes with format as "<Ensembl>\t<Value>"<br />
+-G: A tab-delineate file displayed the expression value of ensembl genes with format as "\<Ensembl\>\t\<Value\>"<br />
   
 # Softwares
 To run EAGLE, following softwares are required:<br />
