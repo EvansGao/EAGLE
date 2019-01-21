@@ -9,6 +9,6 @@ Essential Options
 -G: A tab-delineate file displayed the expression value of ensembl genes with format as "<Ensembl>\t<Value>"
   
 # Softwares
-To run EAGLE, following softwares are required:
-Perl v5.16.3
-Matlab R2017b
+To run EAGLE, following softwares are required:<br />
+Perl v5.16.3<br />
+Matlab R2017b<br />
