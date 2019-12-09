@@ -1,8 +1,16 @@
 use List::MoreUtils qw(uniq);
 use List::Util qw(min max sum);
 $enhfile=$ARGV[0];
+$species=$ARGV[1];
+
+$allenhs="";
+if($species eq "mouse"){
+$allenhs="allenhsmouse.bed";
+}else{
+$allenhs="allenhs.bed";
+}
 mkdir("temp/enhancer");
-system("bedtools intersect -a ./enhancerinfo/allenhs.bed -b $enhfile -wa -wb>./temp/enhancer/cellenhspre.bed");
+system("bedtools intersect -a ./enhancerinfo/$allenhs -b $enhfile -wa -wb>./temp/enhancer/cellenhspre.bed");
 	@tempenhs=();
 	%hashtempenh=();
 	open CELLENH,"./temp/enhancer/cellenhspre.bed";
