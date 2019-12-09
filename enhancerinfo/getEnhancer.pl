@@ -9,11 +9,13 @@ $allenhs="allenhsmouse.bed";
 }else{
 $allenhs="allenhs.bed";
 }
-mkdir("temp/enhancer");
-system("bedtools intersect -a ./enhancerinfo/$allenhs -b $enhfile -wa -wb>./temp/enhancer/cellenhspre.bed");
+
+mkdir("./Temp/enhancer");
+
+system("bedtools intersect -a ./enhancerinfo/$allenhs -b ./".$enhfile." -wa -wb>./Temp/enhancer/cellenhspre.bed");
 	@tempenhs=();
 	%hashtempenh=();
-	open CELLENH,"./temp/enhancer/cellenhspre.bed";
+	open CELLENH,"./Temp/enhancer/cellenhspre.bed";
 	while(<CELLENH>){
 	chomp($_);
 	@temp=split/\t/,$_;
@@ -25,7 +27,7 @@ system("bedtools intersect -a ./enhancerinfo/$allenhs -b $enhfile -wa -wb>./temp
 	}
 	}
 	close CELLENH;
-	open CELLSTANDARD,">./temp/enhancer/cellenhs.bed";
+	open CELLSTANDARD,">./Temp/enhancer/cellenhs.bed";
 	foreach $enh (@tempenhs){
 	print CELLSTANDARD $enh."\t".$hashtempenh{$enh}."\n";
 	}
