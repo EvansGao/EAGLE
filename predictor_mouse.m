@@ -1,9 +1,9 @@
-%Prediction for human
-load('classificationEnsemble')
+%Prediction for mouse
+load('mouseclassificationEnsemble')
 fileID=fopen("./Temp/res/pairres.bed");
 candidatedata=textscan(fileID,'%s %f %f %f %f %f %f');
 Alldata=[candidatedata{2:7}];
-[lables,scores]=predict(classificationEnsemble,Alldata);
+[lables,scores]=predict(mouseclassificationEnsemble,Alldata);
 Results=[candidatedata,scores];
 pairs = fopen("predictedResults.txt",'wt');
 tempA=cellstr(Results{1,1});
