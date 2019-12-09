@@ -82,9 +82,12 @@ $hashpair{$temp[0]}.="\t"."0";
 }
 close WEEC;
 
-mkdir("Temp/res");
+mkdir("./Temp/res");
 open ALL,">./Temp/res/pairres.bed";
 foreach $pair (@allpairs){
 print ALL $pair."\t".$hashpair{$pair}."\n";
 }
 close ALL;
+unlink("./cellEnhGeneWindowpre.bed");
+unlink("./cellEnhGeneWindow.bed");
+unlink("./cellEnhGeneWindowInEnh.bed");

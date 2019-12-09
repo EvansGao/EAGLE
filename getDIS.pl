@@ -1,6 +1,6 @@
 use List::MoreUtils qw(uniq);
 use List::Util qw(min max sum);
-mkdir("DIS");
+mkdir("./DIS");
 open PAIR,"./Temp/pair/Pairs.bed";
 open PAIRSTA,">./Temp/pair/PairsStandard.bed";
 open CELLDIS,">./DIS/DIS.bed";

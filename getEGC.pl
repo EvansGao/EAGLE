@@ -1,10 +1,10 @@
 use List::MoreUtils qw(uniq);
 use List::Util qw(min max sum);
 use List::MoreUtils qw(uniq);
-mkdir("EGC");
-mkdir("Temp/pair");
+mkdir("./EGC");
+mkdir("./Temp/pair");
 system("bedtools intersect -a ./Temp/gene/genesinfo.bed -b ./Temp/enhancer/cellenhs.bed -wa -wb>./Temp/pair/Pairs.bed");
-open CORR,"AllgenesenhspairsScore.bed";
+open CORR,"./AllgenesenhspairsScore.bed";
 %hashpaircorrelation=();
 while(<CORR>){
 chomp($_);

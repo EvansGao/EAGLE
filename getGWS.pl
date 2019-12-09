@@ -1,8 +1,8 @@
 use List::MoreUtils qw(uniq);
 use List::Util qw(min max sum);
-mkdir("GWS");
-system("bedtools intersect -a cellEnhGeneWindow.bed -b ./Temp/gene/genesig.bed -wa -wb>cellEnhGeneWindowInGene.bed");
-open WINDOWGENE,"cellEnhGeneWindowInGene.bed";
+mkdir("./GWS");
+system("bedtools intersect -a ./cellEnhGeneWindow.bed -b ./Temp/gene/genesig.bed -wa -wb>./cellEnhGeneWindowInGene.bed");
+open WINDOWGENE,"./cellEnhGeneWindowInGene.bed";
 %hashWindowInGene=();
 %hashpairtoLength=();
 @pairs=();
@@ -19,7 +19,7 @@ $hashWindowInGene{$temp[3]}+=($temp[6]-$temp[5])*$temp[7];
 }
 close WINDOWGENE;
 
-open GWS,">GWS/GWS.bed";
+open GWS,">./GWS/GWS.bed";
 	foreach $pair (@pairs){
 		if(!exists $hashWindowInGene{$pair}){
 		$hashWindowInGene{$pair}=0;

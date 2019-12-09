@@ -1,6 +1,6 @@
 use List::MoreUtils qw(uniq);
 use List::Util qw(min max sum);
-mkdir("WEEC");
+mkdir("./WEEC");
 open PAIR,"./Temp/pair/Pairs.bed";
 @pairs=();
 %hashpairTOWEEC=();

@@ -1,9 +1,9 @@
 use List::MoreUtils qw(uniq);
 use List::Util qw(min max sum);
-mkdir("EWS");
-system("bedtools intersect -a ./Temp/gene/genesinfo.bed -b ./Temp/enhancer/cellenhs.bed -wa -wb>cellEnhGeneSigPre.bed");
-open ENHGENE,"cellEnhGeneSigPre.bed";
-open WINDOW,">cellEnhGeneWindowpre.bed";
+mkdir("./EWS");
+system("bedtools intersect -a ./Temp/gene/genesinfo.bed -b ./Temp/enhancer/cellenhs.bed -wa -wb>./cellEnhGeneSigPre.bed");
+open ENHGENE,"./cellEnhGeneSigPre.bed";
+open WINDOW,">./cellEnhGeneWindowpre.bed";
 @pairs=();
 %hashpairtoLength=();
 while(<ENHGENE>){
@@ -22,11 +22,11 @@ $TSS=$temp[2]-1000000;
 	}
 }
 close ENHGENE;
-unlink("cellEnhGeneSigPre.bed");
+unlink("./cellEnhGeneSigPre.bed");
 close WINDOW;
-system("bedtools sort -i cellEnhGeneWindowpre.bed>cellEnhGeneWindow.bed");
-system("bedtools intersect -a cellEnhGeneWindow.bed -b ./Temp/enhancer/cellenhs.bed -wa -wb>cellEnhGeneWindowInEnh.bed");
-open WINDOWENH,"cellEnhGeneWindowInEnh.bed";
+system("bedtools sort -i ./cellEnhGeneWindowpre.bed>./cellEnhGeneWindow.bed");
+system("bedtools intersect -a ./cellEnhGeneWindow.bed -b ./Temp/enhancer/cellenhs.bed -wa -wb>./cellEnhGeneWindowInEnh.bed");
+open WINDOWENH,"./cellEnhGeneWindowInEnh.bed";
 %hashWindowInEnh=();
 while(<WINDOWENH>){
 chomp($_);
@@ -39,7 +39,7 @@ $hashWindowInEnh{$temp[3]}+=($temp[6]-$temp[5])*$temp[7];
 }
 close WINDOWENH;
 
-open EWS,">EWS/EWS.bed";
+open EWS,">./EWS/EWS.bed";
 	foreach $pair (@pairs){
 		if(!exists $hashWindowInEnh{$pair}){
 		$hashWindowInEnh{$pair}=0;

@@ -1,7 +1,7 @@
 use List::MoreUtils qw(uniq);
 use List::Util qw(min max sum);
 $genefile=$ARGV[0];
-mkdir("GS");
+mkdir("./GS");
 open FILE,$genefile;
 %hashcellgeneTosig=();
 while(<FILE>){
