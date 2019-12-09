@@ -61,5 +61,4 @@ system("rm -rf Temp");
 
 #perl EAGLE.pl -E inputexample/cell_enh.bed -G inputexample/cell_gene.txt
 #for mouse:perl EAGLE.pl -E inputexample/mouse_cell_enh.bed -G inputexample/mouse_cell_gene.txt -S mouse
-$duration = time - $start;
-print "all are done: $duration s\n";	
+	
