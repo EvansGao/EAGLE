@@ -26,7 +26,7 @@ print "-Setting the feature: Gene Scores......\n";
 #get the feature of gene score(GS)
 system("perl getGS.pl ".$GeneExpr);
 
-print "-Setting the feature: distances between enhancer and gene......\n";
+print "-Setting the feature: Distances between enhancer and gene......\n";
 #get the feature of distance(DIS)
 system("perl getDIS.pl");
 
@@ -42,7 +42,7 @@ print "-Setting the feature: Weights of Enhancer-Enhancer Correlations......\n";
 #get the feature of Weight of enhancer-enhancer correlations
 system("perl getWEEC.pl");
 
-print "-Combining all set features......\n";
+print "-Combining all the features......\n";
 #combining all features
 system("perl combination.pl");
 
@@ -54,11 +54,11 @@ system("matlab -nosplash -nodesktop -minimize -r predictor_mouse");
 }else{
 system("matlab -nosplash -nodesktop -minimize -r predictor");
 }
-
+sleep(12);
 
 
 system("rm -rf Temp");
 
-#perl EAGLE.pl -E inputexample/cell_enh.bed -G inputexample/cell_gene.txt
+#perl EAGLE.pl -E inputexample/cell_enh.bed -G inputexample/cell_gene.txt -S human
 #for mouse:perl EAGLE.pl -E inputexample/mouse_cell_enh.bed -G inputexample/mouse_cell_gene.txt -S mouse
 	
