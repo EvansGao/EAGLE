@@ -7,7 +7,7 @@ open FILE,$genefile;
 while(<FILE>){
 chomp($_);
 @temp=split/\t/,$_;
-if($temp[0]=~ /ENSG/){
+if($temp[0]=~ /ENSG|ENSMUSG/){
 $hashcellgeneTosig{$temp[0]}=$temp[1];
 }
 }
