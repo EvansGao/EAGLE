@@ -2,7 +2,6 @@ use List::MoreUtils qw(uniq);
 use List::Util qw(min max sum);
 $genefile=$ARGV[0];
 $species=$ARGV[1];
-mkdir("Temp/gene");
 
 open FILE,$genefile;
 %hashcellgeneTosig=();
