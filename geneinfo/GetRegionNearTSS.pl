@@ -1,7 +1,7 @@
 use List::MoreUtils qw(uniq);
 use List::Util qw(min max sum);
 $genefile=$ARGV[0];
-
+$species=$ARGV[1];
 mkdir("Temp/gene");
 
 open FILE,$genefile;
@@ -9,13 +9,20 @@ open FILE,$genefile;
 while(<FILE>){
 chomp($_);
 @temp=split/\t/,$_;
-if($temp[0]=~ /ENSG/){
+if($temp[0]=~ /ENSG|ENSMUSG/){
 $hashcellgeneTosig{$temp[0]}=$temp[1];
 }
 }
 close FILE;
 
-open GENE,"./geneinfo/human_ensembl.txt";
+$genereffile="";
+if($species eq "mouse"){
+$genereffile="mouse_ensembl.txt";
+}else{
+$genereffile="human_ensembl.txt";
+}
+
+open GENE,"./geneinfo/".$genereffile;
 open CELLGENE,">./Temp/gene/genesigPre.bed";
 @genes=();
 %hashgenetochr=();
